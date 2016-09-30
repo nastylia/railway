@@ -10,6 +10,10 @@ class TrainsController < ApplicationController
   # GET /trains/1
   # GET /trains/1.json
   def show
+    @economy_carriages = Carriage.where(train_id: params[:id], carriage_type: 'econom-class')
+    @first_carriages = Carriage.where(train_id: params[:id], carriage_type: 'first-class')
+    @economy_seats = count_seats(@economy_carriages)
+    @first_seats = count_seats(@first_carriages)
   end
 
   # GET /trains/new
@@ -70,5 +74,15 @@ class TrainsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def train_params
       params.require(:train).permit(:number, :route_id)
+    end
+
+    def count_seats(carriages)
+      result = {up: 0, down: 0}
+      return result unless carriages
+      carriages.each do |carriage|
+        result[:up] += carriage.up_seats
+        result[:down] += carriage.down_seats
+      end
+      result
     end
 end
