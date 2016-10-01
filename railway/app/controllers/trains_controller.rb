@@ -10,6 +10,10 @@ class TrainsController < ApplicationController
   # GET /trains/1
   # GET /trains/1.json
   def show
+    @economy_carriages = @train.carriages.where(carriage_type: 'econom-class')
+    @first_carriages = @train.carriages.where(carriage_type: 'first-class')
+    @economy_seats = @train.count_seats(@economy_carriages)
+    @first_seats = @train.count_seats(@first_carriages)
   end
 
   # GET /trains/new
