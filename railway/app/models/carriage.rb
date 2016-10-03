@@ -1,3 +1,3 @@
 class Carriage < ActiveRecord::Base
-  belongs_to :train
+  validates :number
 end

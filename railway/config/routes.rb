@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :tickets
   resources :carriages
   get 'welcome/index'
-
+  
+  post 'railway_stations/:id', to: 'railway_stations#update_position', as: 'update_position'
+  
   resources :railway_stations
   resources :routes
 
