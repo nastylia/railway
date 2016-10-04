@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :carriage_type, 'Carriage type:' %>
-    <%= f.select :carriage_type, ['econom-class', 'first-class'] %>
+    <%= f.label :type, 'Carriage type:' %>
+    <%= f.select :type, carriage.get_all_types_invert %>
   </div>
 
   <div class="field">
