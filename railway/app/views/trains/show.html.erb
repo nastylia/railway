@@ -15,35 +15,11 @@
 </p>
 
 <p>
-  <strong>Number of first class carriages:</strong>
-  <%= @first_carriages.count %>
-  </br>
-  <strong>Number of economy class carriages:</strong>
-  <%= @economy_carriages.count %>
-</p>
-<p>  
-  <table>
-    <thead>
-      <tr>
-        <th>Type of setas</th>
-        <th>Up</th>
-        <th>Down</th>
-      </tr>
-    </thead>
+  <strong>Carriages numbers list:</strong>
+  <% @carriages.ordered(@train.sort).each do |carriage| %>
+    <%= link_to "#{carriage.number}", carriage %>
+  <% end %>
 
-    <tbody>
-        <tr>
-          <td>Economy class</td>
-          <td><%= @economy_seats[:up] %></td>
-          <td><%= @economy_seats[:down] %></td>
-        </tr>
-        <tr>
-          <td>First class</td>
-          <td><%= @first_seats[:up] %></td>
-          <td><%= @first_seats[:down] %></td>
-        </tr>
-    </tbody>
-  </table>
 </p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |

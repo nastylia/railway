@@ -9,12 +9,16 @@
       <th>Up seats</th>
       <th>Down seats</th>
       <th>Sitting seats</th>
+      <th>Up side seats</th>
+      <th>Up down seats</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <%= render @carriages %>
+    <% @carriages.each do |carriage| %>
+      <%= render 'carriage', carriage: carriage %>
+    <% end %>
   </tbody>
 </table>
 

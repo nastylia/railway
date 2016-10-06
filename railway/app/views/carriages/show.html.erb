@@ -4,14 +4,9 @@
   <strong>Carriage type:</strong>
   <%= @carriage.get_type%>
 </p>
-<p>
-  <strong>Up seats number:</strong>
-  <%= @carriage.up_seats%>
-</p>
-<p>
-  <strong>Down seats number:</strong>
-  <%= @carriage.down_seats%>
-</p>
+
+<%= render "#{@carriage.get_type_name_for_partial}", carriage: @carriage %>
+
 <p>
   <strong>Train number:</strong>
   <% if @carriage.train.present? %>

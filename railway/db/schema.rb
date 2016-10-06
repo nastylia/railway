@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20161001160216) do
   create_table "railway_stations_routes", force: :cascade do |t|
     t.integer "railway_station_id"
     t.integer "route_id"
-    t.integer "position",           default: 0
     t.integer "index_number",       default: 0
+    t.integer "position",           default: 0
   end
 
   create_table "routes", force: :cascade do |t|
@@ -59,8 +59,9 @@ ActiveRecord::Schema.define(version: 20161001160216) do
 
   create_table "trains", force: :cascade do |t|
     t.integer  "number"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.boolean  "sort",               default: true
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.integer  "route_id"
     t.integer  "current_station_id"
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
