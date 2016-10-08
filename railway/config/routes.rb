@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :tickets
   resources :carriages
   get 'welcome/index'
-
-  resources :railway_stations
+  
+  resources :railway_stations do
+    patch :update_position, on: :member
+  end
   resources :routes
 
   root 'welcome#index'
