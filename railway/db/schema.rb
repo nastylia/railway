@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20161001160216) do
   create_table "railway_stations_routes", force: :cascade do |t|
     t.integer "railway_station_id"
     t.integer "route_id"
-    t.integer "index_number",       default: 0
     t.integer "position",           default: 0
+    t.integer "index_number",       default: 0
   end
 
   create_table "routes", force: :cascade do |t|

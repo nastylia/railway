@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   resources :carriages
   get 'welcome/index'
   
-  post 'railway_stations/:id', to: 'railway_stations#update_position', as: 'update_position'
-  
-  resources :railway_stations
+  resources :railway_stations do
+    patch :update_position, on: :member
+  end
   resources :routes
 
   root 'welcome#index'
