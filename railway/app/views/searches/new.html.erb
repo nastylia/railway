@@ -1,0 +1,34 @@
+<h1>List of trains:</h1>
+
+<% if @trains_info.empty? %>
+  <p>No trains for your route</p>
+<% else %>
+  <p>
+  <table>
+    <thead>
+      <tr>
+        <td>Train</td>
+        <td>Departure time</td>
+        <td>Arrival time</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @trains_info.each do |info| %>
+        <tr>
+          <td><%= info[:train].number %></td>
+          <td><%= info[:departure][:departure_time] %></td>
+          <td><%= info[:arrival][:arrival_time] %></td>
+          <td>
+            <%= form_tag buy_ticket_path(info[:train]), method: :post do %>
+            <%= hidden_field_tag :train_id, info[:train][:id] %>
+            <%= hidden_field_tag :start_station_id, info[:departure][:id] %>
+            <%= hidden_field_tag :end_station_id, info[:arrival][:id] %>
+            <%= submit_tag "Buy ticket" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </p>
+<% end %>
