@@ -7,12 +7,10 @@ class SearchesController < ApplicationController
   end
 
   def create
-    trains = Search.search_trains(params[:departure_station], params[:arrival_station])
-    
-    @trains_info = []
-    trains.each do |train|
-       @trains_info << { train: train, departure: Search.get_station(params[:departure_station]), arrival: Search.get_station(params[:arrival_station]) }
-    end
+    @departure_station = RailwayStation.find(params[:departure_station])
+    @arrival_station = RailwayStation.find(params[:arrival_station])
+    @trains = Search.search_trains(@departure_station, @arrival_station)
+
     render :new
   end
 

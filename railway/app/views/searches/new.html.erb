@@ -1,6 +1,6 @@
 <h1>List of trains:</h1>
 
-<% if @trains_info.empty? %>
+<% if @trains.empty? %>
   <p>No trains for your route</p>
 <% else %>
   <p>
@@ -13,16 +13,16 @@
       </tr>
     </thead>
     <tbody>
-      <% @trains_info.each do |info| %>
+      <% @trains.each do |train| %>
         <tr>
-          <td><%= info[:train].number %></td>
-          <td><%= info[:departure].departure_in(info[:train].route) %></td>
-          <td><%= info[:arrival].arrival_in(info[:train].route) %></td>
+          <td><%= train.number %></td>
+          <td><%= @departure_station.departure_in(train.route) %></td>
+          <td><%= @arrival_station.arrival_in(train.route) %></td>
           <td>
-            <%= form_tag buy_ticket_path(info[:train]), method: :post do %>
-            <%= hidden_field_tag :train_id, info[:train][:id] %>
-            <%= hidden_field_tag :start_station_id, info[:departure][:id] %>
-            <%= hidden_field_tag :end_station_id, info[:arrival][:id] %>
+            <%= form_tag buy_ticket_path(train), method: :post do %>
+            <%= hidden_field_tag :train_id, train[:id] %>
+            <%= hidden_field_tag :start_station_id, @departure_station[:id] %>
+            <%= hidden_field_tag :end_station_id, @arrival_station[:id] %>
             <%= submit_tag "Buy ticket" %>
             <% end %>
           </td>

@@ -8,8 +8,8 @@ class TicketsController < ApplicationController
     @start_station_title = @ticket.start_station.title
     @end_station_title = @ticket.end_station.title
     @train_number = @ticket.train.number
-    @departure_time = Search.get_departure_time(@ticket.train)
-    @arrival_time = Search.get_arrival_time(@ticket.train)
+    @departure_time = @ticket.start_station.departure_in(@ticket.train.route)
+    @arrival_time = @ticket.start_station.arrival_in(@ticket.train.route)
 
   end
 
