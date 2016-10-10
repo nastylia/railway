@@ -35,6 +35,14 @@ class RailwayStation < ApplicationRecord
     station_route(route).try(:arrival_time)
   end
 
+  # def get_departure_time(train)
+  #   train.route.railway_stations_routes.first[:departure_time]
+  # end
+
+  # def get_arrival_time(train)
+  #   train.route.railway_stations_routes.last[:arrival_time]
+  # end
+
   protected
 
   def station_route(route)

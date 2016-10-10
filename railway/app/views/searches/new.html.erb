@@ -16,8 +16,8 @@
       <% @trains_info.each do |info| %>
         <tr>
           <td><%= info[:train].number %></td>
-          <td><%= info[:departure][:departure_time] %></td>
-          <td><%= info[:arrival][:arrival_time] %></td>
+          <td><%= info[:departure].departure_in(info[:train].route) %></td>
+          <td><%= info[:arrival].arrival_in(info[:train].route) %></td>
           <td>
             <%= form_tag buy_ticket_path(info[:train]), method: :post do %>
             <%= hidden_field_tag :train_id, info[:train][:id] %>

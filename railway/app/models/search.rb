@@ -1,14 +1,21 @@
 class Search < ActiveRecord::Base
-  def self.search_trains(departure_station, arrival_station)
-    routes = Route.where(name: "#{departure_station}-#{arrival_station}").first
-    routes.nil? ? [] : routes.trains
+
+  #attr_accessor :departure_station_id, :arrival_station_id
+
+  def self.search_trains(departure_station_id, arrival_station_id)
+    routes_departure = RailwayStation.find(departure_station_id).routes
+    routes_arrival = RailwayStation.find(arrival_station_id).routes
+    routes = routes_departure & routes_arrival
+    trains = []
+    routes.each { |route| route.trains.each {|t| trains << t}}
+    trains
   end
 
-  def self.get_departure_time(train)
-    train.route.railway_stations_routes.first[:departure_time]
-  end
+  # def departure_station
+  #   @start_station ||= RailwayStation.find(departure_station_id)
+  # end
 
-  def self.get_arrival_time(train)
-    train.route.railway_stations_routes.last[:arrival_time]
-  end
+  # def arrival_station
+  #   @end_station ||= RailwayStation.find(arrival_station_id)
+  # end
 end
