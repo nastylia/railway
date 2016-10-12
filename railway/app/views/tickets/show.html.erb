@@ -1,8 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
-  <%= @ticket.number%>
+  <strong>Passenger name:</strong>
+  <%= @ticket.name%>
+</p>
+
+<p>
+  <strong>Passport info:</strong>
+  <%= @ticket.passport_info%>
+</p>
+
+<p>
+  <strong>Train number:</strong>
+  <%= @train_number%>
+</p>
+
+<p>
+  <strong>Start station:</strong>
+  <%= @start_station_title%>
+</p>
+
+<p>
+  <strong>End station:</strong>
+  <%= @end_station_title%>
+</p>
+
+<p>
+  <strong>Departure time:</strong>
+  <%= @departure_time%>
+</p>
+
+<p>
+  <strong>Arrival time:</strong>
+  <%= @arrival_time%>
 </p>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |

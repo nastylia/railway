@@ -1,8 +1,6 @@
 class CarriagesController < ApplicationController
-  before_action :set_carriage, only: [:show, :edit, :update, :destroy]
-  def index
-    @carriages = Carriage.all
-  end
+  before_action :set_carriage, only: [:show]
+  before_action :set_train, only: [:new, :create]
 
   def show
   end
@@ -12,31 +10,15 @@ class CarriagesController < ApplicationController
   end
 
   def create
-    @carriage = Carriage.new(carriage_params)
+    @carriage = @train.carriages.new(carriage_params)
     if @carriage.save
-      redirect_to @carriage
+      redirect_to @train
     else
       render :new
     end
   end
 
-  def edit
-  end
-
-  def update    
-    if @carriage.update(carriage_params)
-      redirect_to @carriage
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @carriage.destroy
-    redirect_to carriages_path
-  end
-
-  private
+  protected
 
   def carriage_params
     params.require(:carriage).permit(:type, :carriage_type, :up_seats, :down_seats, :train_id, :sit_seats, :side_up_seats, :side_down_seats)
@@ -44,5 +26,9 @@ class CarriagesController < ApplicationController
 
   def set_carriage
     @carriage = Carriage.find(params[:id])
+  end
+
+  def set_train
+    @train = Train.find(params[:train_id])
   end
 end

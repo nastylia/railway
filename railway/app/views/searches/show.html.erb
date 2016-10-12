@@ -1,0 +1,15 @@
+<h1>Search ticket:</h1>
+
+<%= form_tag search_path do %>
+  <p>
+    <%= label_tag :departure_station, "Choose departure station:" %>
+    <%= select_tag :departure_station, options_from_collection_for_select(@stations, :id, :title) %>
+  </p>
+  <p>
+    <%= label_tag :arrival_station, "Choose arrival station:" %>
+    <%= select_tag :arrival_station, options_from_collection_for_select(@stations, :id, :title) %>
+  </p>
+  <p>
+    <%= submit_tag "Find!" %>
+  </p>
+<% end %>
