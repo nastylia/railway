@@ -1,2 +1,45 @@
 ru:
   hello: "Привет"
+
+  unique:
+    carriage: "Номера вагонов в рамках поезда должны быть уникальны"
+  common:
+    back: "Назад"
+    show: "Показать"
+    delete: "Удалить"
+    edit: "Редактировать"
+    sure_or_not: "Вы уверены?"
+    errors: "При заполнении формы возникли ошибки"
+  admin:
+    railway_stations:
+      new:
+        title: "Новая станция"
+      edit:
+        title: "Изменить станцию"
+      form:
+        submit: "%{action} станцию"
+      index:
+        title: "Станции"
+        table_title: "Cтанция"
+        new_station: "Новая станция"
+      show: "Название станции"
+    routes:
+      form:
+        submit: "%{action} маршрут"
+      edit:
+        title: "Изменить маршрут"
+      index:
+        title: "Маршруты"
+        name: "Название"
+        new_route: "Новый маршрут"
+      new:
+        title: "Новый маршрут"
+      show:
+        name: "Название"
+        no_trains: "Нет поездов на маршруте"
+        trains_on_route: "Поезда на маршруте"
+        no_stations: "Нет станций в маршруте"
+        position: "Позиция"
+        departure_time: "Время отправления"
+        arrival_time: "Время прибытия"
+        submit: "Поменять %{action}"
