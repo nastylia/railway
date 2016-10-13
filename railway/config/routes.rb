@@ -1,19 +1,32 @@
 Rails.application.routes.draw do
-  resources :trains do
-    resources :carriages, shallow: true
+  devise_for :users
+
+  namespace :admin do
+    resources :trains do
+      resources :carriages, shallow: true
+    end
+
+    resources :railway_stations do
+      patch :update_position, on: :member
+      patch :update_arrival, on: :member
+      patch :update_departure, on: :member
+    end
+
+    resources :tickets, except: [:create, :new, :index, :edit]
+
+    resources :routes
   end
-  resources :users
+
+  
   resources :tickets do
     post :buy, on: :member
   end
+
+  resources :users
+
   get 'welcome/index'
   
-  resources :railway_stations do
-    patch :update_position, on: :member
-    patch :update_arrival, on: :member
-    patch :update_departure, on: :member
-  end
-  resources :routes
+
   resource :search, only: [:show, :new, :edit, :create ]
 
   root 'welcome#index'
