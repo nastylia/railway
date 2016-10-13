@@ -10,6 +10,20 @@ ru:
     edit: "Редактировать"
     sure_or_not: "Вы уверены?"
     errors: "При заполнении формы возникли ошибки"
+    sign_in: "Войти"
+    sign_out: "Выйти"
+    admin: "Админ"
+  searches:
+    show:
+      title: "Поиск билета"
+      find: "Найти"
+    new:
+      title: "Найденные поезда"
+      no_trains: "Не найдено поездов"
+      train: "Поезд"
+      departure_time: "Время отправления"
+      arrival_time: "Время прибытия"
+      buy: "Купить"
   admin:
     railway_stations:
       new:
@@ -35,7 +49,7 @@ ru:
       new:
         title: "Новый маршрут"
       show:
-        name: "Название"
+        name: "Маршрут"
         no_trains: "Нет поездов на маршруте"
         trains_on_route: "Поезда на маршруте"
         no_stations: "Нет станций в маршруте"

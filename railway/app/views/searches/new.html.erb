@@ -1,34 +1,35 @@
-<h1>List of trains:</h1>
+<h1><%= t('.title') %></h1>
 
 <% if @trains.empty? %>
-  <p>No trains for your route</p>
+  <p><%= t('.no_trains') %></p>
 <% else %>
-  <p>
-  <table>
-    <thead>
-      <tr>
-        <td>Train</td>
-        <td>Departure time</td>
-        <td>Arrival time</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @trains.each do |train| %>
+  <div>
+    <table class="table table-striped">
+      <thead class="thead-inverse">
         <tr>
-          <td><%= train.number %></td>
-          <td><%= @departure_station.departure_in(train.route) %></td>
-          <td><%= @arrival_station.arrival_in(train.route) %></td>
-          <td>
-            <%= form_tag buy_ticket_path(train), method: :post do %>
-            <%= hidden_field_tag :train_id, train[:id] %>
-            <%= hidden_field_tag :start_station_id, @departure_station[:id] %>
-            <%= hidden_field_tag :end_station_id, @arrival_station[:id] %>
-            <%= submit_tag "Buy ticket" %>
-            <% end %>
-          </td>
+          <th><%= t('.train') %></th>
+          <th><%= t('.departure_time') %></th>
+          <th><%= t('.arrival_time') %></th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-  </p>
+      </thead>
+      <tbody>
+        <% @trains.each do |train| %>
+          <tr>
+            <td><%= train.number %></td>
+            <td><%= @departure_station.departure_in(train.route) %></td>
+            <td><%= @arrival_station.arrival_in(train.route) %></td>
+            <td>
+              <%= form_tag buy_ticket_path(train), method: :post do %>
+              <%= hidden_field_tag :train_id, train[:id] %>
+              <%= hidden_field_tag :start_station_id, @departure_station[:id] %>
+              <%= hidden_field_tag :end_station_id, @arrival_station[:id] %>
+              <%= submit_tag t('.buy'), class: "btn btn-primary" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% end %>

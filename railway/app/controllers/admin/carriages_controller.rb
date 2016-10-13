@@ -12,7 +12,7 @@ class Admin::CarriagesController < Admin::BaseController
   def create
     @carriage = @train.carriages.new(carriage_params)
     if @carriage.save
-      redirect_to @train
+      redirect_to admin_train_path(@train)
     else
       render :new
     end

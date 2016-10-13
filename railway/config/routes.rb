@@ -31,6 +31,6 @@ Rails.application.routes.draw do
 
   resource :search, only: [:show, :new, :edit, :create ]
 
-  root 'welcome#index'
+  root 'searches#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

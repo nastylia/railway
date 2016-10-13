@@ -1,22 +1,23 @@
-<%= form_for(train) do |f| %>
+<%= form_for [:admin, train] do |f| %>
   <%= render 'common/errors', resource: train %>
 
-  <div class="field">
+  <div class="form-group col-md-3">
     <%= f.label :number %>
-    <%= f.number_field :number %>
+    <%= f.number_field :number, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :route, "Route" %>
-    <%= f.collection_select :route_id, Route.all, :id, :name %>
+  <div class="form-group col-md-3">
+    <%= f.label :route %>
+    <%= f.collection_select :route_id, Route.all, :id, :name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :sort, "Sort from the head:" %>
-    <%= f.check_box :sort %>
+  <div class="form-group col-md-3">
+    <%= f.label :sort, "Отсортировать с головы:" %>
+    <%= f.check_box :sort, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions col-md-3">
+    </br>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
