@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 
 <h1>Tickets</h1>
 
@@ -12,7 +13,7 @@
   <tbody>
     <% @tickets.each do |ticket| %>
       <tr>
-        <td><%= ticket.id %></td>
+        <td><%= ticket.number %></td>
         <td><%= link_to 'Show', ticket %></td>
         <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>

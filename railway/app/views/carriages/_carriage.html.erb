@@ -1,0 +1,11 @@
+<tr>
+  <td><%= carriage.get_type %></td>
+  <td><%= carriage.up_seats %></td>
+  <td><%= carriage.down_seats %></td>
+  <td><%= carriage.sit_seats %></td>
+  <td><%= carriage.side_up_seats %></td>
+  <td><%= carriage.side_down_seats %></td>
+  <td><%= link_to 'Show', carriage %></td>
+  <td><%= link_to 'Edit', edit_carriage_path(carriage) %></td>
+  <td><%= link_to 'Destroy', carriage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

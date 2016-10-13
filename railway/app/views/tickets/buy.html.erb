@@ -13,6 +13,10 @@
   <%= f.label :passport_info, "Enter passport info:" %>
   <%= f.text_field :passport_info %>
 </p>
+<p>
+  <%= f.label :user_id, "Select user you are logged in;" %>
+  <%= f.collection_select(:user_id, @users, :id, :name) %>
+</p>
 
 <%= f.submit "Buy ticket" %>
 <% end %>

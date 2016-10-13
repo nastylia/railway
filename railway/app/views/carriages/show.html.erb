@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Carriage type:</strong>
+  <%= @carriage.get_type%>
+</p>
+
+<%= render "#{@carriage.get_type_name_for_partial}", carriage: @carriage %>
+
+<p>
+  <strong>Train number:</strong>
+  <% if @carriage.train.present? %>
+    <%= @carriage.train.number %>
+  <% else %>
+    No train
+  <% end %>
+</p>
+
+<%= link_to 'Back', train_path(@carriage.train) %>
