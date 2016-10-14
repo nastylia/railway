@@ -1,18 +1,18 @@
-<h1>New Ticket</h1>
+<h1>Новый билет</h1>
 
-<p>Enter info about the passenger:</p>
-<%= form_for(@ticket) do |f| %>
+<h3>Введите информацию о пассажире</h3>
+<%= form_for @ticket, class: "form-horizontal" do |f| %>
 <%= f.hidden_field :train_id %>
 <%= f.hidden_field :start_station_id %>
 <%= f.hidden_field :end_station_id %>
-<p>
-  <%= f.label :name, "Enter passenger's name:" %>
+<div class="form-group">
+  <%= f.label :name, "Имя пассажира" %>
   <%= f.text_field :name%>
-</p>
-<p>
-  <%= f.label :passport_info, "Enter passport info:" %>
+</div>
+<div class="form-group">
+  <%= f.label :passport_info, "Паспортные данные" %>
   <%= f.text_field :passport_info %>
-</p>
+</div>
 
-<%= f.submit "Buy ticket" %>
+<%= f.submit "Купить билет", class: "btn btn-primary" %>
 <% end %>

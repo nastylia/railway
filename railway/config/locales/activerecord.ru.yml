@@ -1,0 +1,51 @@
+ru:
+  activerecord:
+    models:
+      railway_station: "Станция"
+      train: "Поезд"
+      route: "Маршрут"
+      carriage: "Вагон"
+    attributes:
+      railway_station:
+        title: "Название"
+      train:
+        number: "Номер"
+      carriage:
+        up_seats: "Верхние места"
+        down_seats: "Нижние места"
+        side_up_seats: "Боковые верхние места"
+        side_down_seats: "Боковые нижние места"
+        sit_seats: "Сидячие места"
+        type: "Тип вагона"
+        train: "Поезд"
+      route:
+        railway_station_ids: "Выберите станции"
+
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: "Пароли не совпадают"
+        carriage:
+          attributes:
+            up_seats:
+              blank: "Заполните количество верхних мест у вагона"
+              present: "У этого вагона нет верхних мест"
+            down_seats:
+              blank: "Заполните количество нижних мест у вагона"
+              present: "У этого вагона нет нижних мест"
+            side_up_seats:
+              blank: "Заполните количество верхних боковых мест у вагона"
+              present: "У этого вагона нет верхних боковых мест"
+            side_down_seats:
+              blank: "Заполните количество нижних боковых мест у вагона"
+              present: "У этого вагона нет нижних боковых мест"
+            sit_seats:
+              blank: "Заполните количество сидячих мест у вагона"
+              present: "У этого вагона нет сидячих мест"
+            name:
+              blank: "Выберите хотя бы 2 станции для маршрута"
+
+
+    

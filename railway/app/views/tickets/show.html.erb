@@ -1,44 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Ticket was bought by:</strong>
-  <%= @ticket.user.email %>
-</p>
+<table class="table table-striped">>
+  <thead>
+  </thead>
 
-<p>
-  <strong>Passenger name:</strong>
-  <%= @ticket.name%>
-</p>
-
-<p>
-  <strong>Passport info:</strong>
-  <%= @ticket.passport_info%>
-</p>
-
-<p>
-  <strong>Train number:</strong>
-  <%= @train_number%>
-</p>
-
-<p>
-  <strong>Start station:</strong>
-  <%= @start_station_title%>
-</p>
-
-<p>
-  <strong>End station:</strong>
-  <%= @end_station_title%>
-</p>
-
-<p>
-  <strong>Departure time:</strong>
-  <%= @departure_time%>
-</p>
-
-<p>
-  <strong>Arrival time:</strong>
-  <%= @arrival_time%>
-</p>
+  <tbody>
+      <tr>
+        <td><strong>Ticket was bought by:</strong></td>
+        <td><%= @ticket.user.email %></td>
+      </tr>
+      <tr>
+        <td><strong>Passenger name:</strong></td>
+        <td><%= @ticket.name%></td>
+      </tr>
+      <tr>
+        <td><strong>Passport info:</strong></td>
+        <td><%= @ticket.passport_info%></td>
+      </tr>
+      <tr>
+        <td><strong>Train number:</strong></td>
+        <td><%= @train_number%></td>
+      </tr>
+      <tr>
+        <td><strong>Start station:</strong></td>
+        <td><%= @start_station_title%></td>
+      </tr>
+      <tr>
+        <td><strong>End station:</strong></td>
+        <td><%= @end_station_title%></td>
+      </tr>
+      <tr>
+        <td><strong>Departure time:</strong></td>
+        <td><%= @departure_time%></td>
+      </tr>
+      <tr>
+        <td><strong>Arrival time:</strong></td>
+        <td><%= @arrival_time%></td>
+      </tr>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>

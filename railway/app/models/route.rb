@@ -11,6 +11,7 @@ class Route < ActiveRecord::Base
   private
 
   def set_name
+    return if railway_stations.empty?
     self.name = "#{railway_stations.first.title}-#{railway_stations.last.title}"
   end
 end

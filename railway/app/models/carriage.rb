@@ -1,6 +1,6 @@
 class Carriage < ActiveRecord::Base
   belongs_to :train
-  validates :number, uniqueness: {scope: :train_id, message: "Carriage number should be unique within train"}
+  validates :number, uniqueness: {scope: :train_id, message: "Carriage should be unique within train"}
 
   scope :economy_class, -> {where(type: "EconomyCarriage")}
   scope :coupe_class, -> {where(type: "CoupeCarriage")}
