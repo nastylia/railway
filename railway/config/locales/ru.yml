@@ -13,6 +13,7 @@ ru:
     sign_in: "Войти"
     sign_out: "Выйти"
     admin: "Админ"
+    search: "Поиск билетов"
   searches:
     show:
       title: "Поиск билета"

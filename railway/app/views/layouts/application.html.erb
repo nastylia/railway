@@ -50,6 +50,7 @@
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
               <li><%= link_to t('common.sign_out'), destroy_user_session_path, method: :delete  %></li>
+              <li><%= link_to t('common.search'), search_path %></li>
               <% if current_user.admin? %>
                 <li><%= link_to t('common.admin'), admin_railway_stations_path  %></li>
               <% end %>
