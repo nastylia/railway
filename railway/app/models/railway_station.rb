@@ -7,7 +7,7 @@ class RailwayStation < ApplicationRecord
   has_many :tickets_departure, class_name: 'Ticket', foreign_key: :start_station_id
   has_many :tickets_arrival, class_name: 'Ticket', foreign_key: :end_station_id
 
-  scope :ordered, -> { joins(:railway_stations_routes).distinct.order("railway_stations_routes.position ASC")}
+  scope :ordered, -> { joins(:railway_stations_routes).order("railway_stations_routes.position ASC").uniq}
   def update_position(route, position_number)
     station_route = station_route(route)
     station_route.update(position: position_number) if station_route
