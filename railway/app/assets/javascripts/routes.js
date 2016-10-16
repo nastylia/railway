@@ -7,20 +7,12 @@ $(document).ready(function() {
     var title;
 
     route_id = $(this).data('routeId');
-    console.log(route_id);
 
     form = $('#edit_route_' + route_id);
     title = $('#route_title_' + route_id);
 
-    if (!$(this).hasClass('cancel')) {
-      $(this).html('Cancel');
-      $(this).addClass('cancel');
-    } else {
-      $(this).html('Edit');
-      $(this).removeClass('cancel');
-    }
+    changeLinkName($(this));
+    toggleClasses(form, title);
 
-    form.toggle();
-    title.toggle();
   });
 });
